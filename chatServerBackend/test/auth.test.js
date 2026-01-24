@@ -1,0 +1,12 @@
+const request = require("supertest");
+const app = require("../server");
+
+describe("Auth API", () => {
+  it("should register user", async () => {
+    const res = await request(app).post("/api/auth/register").send({
+      username: "test",
+      password: "123456"
+    });
+    expect(res.statusCode).toBe(200);
+  });
+});
